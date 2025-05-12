@@ -14,6 +14,7 @@ let speed = 100;
 const scoreDisplay = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
 const highScoreDisplay = document.getElementById("highScore");
+
 function inTheGame(difficulty = "medium") {
     snake = [{ x: 9 * box, y: 10 * box }];
     direction = 'RIGHT';
@@ -23,7 +24,6 @@ function inTheGame(difficulty = "medium") {
     switch(difficulty) {
       case "easy": speed = 150; break;
       case "hard": speed = 70; break;
-      case "nightmare": speed = 200; break;
       default: speed = 100; break;
     }
   
@@ -35,26 +35,26 @@ function inTheGame(difficulty = "medium") {
     clearInterval(gameInterval);
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
-      timer++;
-      timerDisplay.textContent = timer;
+        timer++;
+        timerDisplay.textContent = timer;
     }, 1000);
     gameInterval = setInterval(draw, speed);
   }
   
   function placeFood() {
     food = {
-      x: Math.floor(Math.random() * 19) * box,
-      y: Math.floor(Math.random() * 19) * box
+       x: Math.floor(Math.random() * 19) * box,
+        y: Math.floor(Math.random() * 19) * box
     };
   }
   
   function draw() {
-    playingField.fillStyle = "white";
-    playingField.fillRect(0, 0, canvas.width, canvas.height);
+      playingField.fillStyle = "white";
+      playingField.fillRect(0, 0, canvas.width, canvas.height);
   
     for (let i = 0; i < snake.length; i++) {
-      playingField.fillStyle = i === 0 ? "green" : "darkgreen";
-      playingField.fillRect(snake[i].x, snake[i].y, box, box);
+        playingField.fillStyle = i === 0 ? "green" : "darkgreen";
+        playingField.fillRect(snake[i].x, snake[i].y, box, box);
     }
   
     playingField.fillStyle = "red";
@@ -75,7 +75,7 @@ function inTheGame(difficulty = "medium") {
     ) {
       clearInterval(gameInterval);
       clearInterval(timerInterval);
-      
+      showGameOverPopup();
       return;
     }
   
@@ -95,29 +95,38 @@ function inTheGame(difficulty = "medium") {
     }
   
     snake.unshift(newHead);
-  }
+  };
   
   function collision(x, y, array) {
     for (let i = 0; i < array.length; i++) {
-      if (x === array[i].x && y === array[i].y) {
-        return true;
+        if (x === array[i].x && y === array[i].y) {
+          return true;
       }
     }
     return false;
-  }
+  };
   
   document.addEventListener("keydown", e => {
-    if (e.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
-    if (e.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
-    if (e.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
-    if (e.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+      if (e.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+      if (e.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+      if (e.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+      if (e.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
   });
   
   document.getElementById("themeToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+      document.body.classList.toggle("dark");
   });
   
   document.getElementById("playButton").addEventListener("click", () => {
-    const difficulty = document.getElementById("difficulty").value;
-    inTheGame(difficulty);
+      const difficulty = document.getElementById("difficulty").value;
+      inTheGame(difficulty);
   });
+
+function showGameOverPopup() {
+    document.getElementById("finalScore").textContent = score;
+    document.getElementById("gameOverPopup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("gameOverPopup").style.display = "none";
+}

@@ -28,7 +28,6 @@
         <option value="easy">Easy</option>
         <option value="medium" selected>Medium</option>
         <option value="hard">Hard</option>
-        <option value="nightmare">Nightmare</option>
       </select>
     </div>
   </div>
@@ -36,4 +35,11 @@
   <div class="game-container">
     <canvas id="game" width="700" height="700"></canvas>
   </div>
+  <div id="gameOverPopup" class="popup">
+  <div class="popup-content">
+    <h1>Game Over</h1>
+    <p>Your score: <span id="finalScore">0</span></p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
   <button id="playButton">Play</button>
