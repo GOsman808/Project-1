@@ -14,7 +14,7 @@ let speed = 100;
 const scoreDisplay = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
 const highScoreDisplay = document.getElementById("highScore");
-function initGame(difficulty = "medium") {
+function inTheGame(difficulty = "medium") {
     snake = [{ x: 9 * box, y: 10 * box }];
     direction = 'RIGHT';
     score = 0;
@@ -23,7 +23,7 @@ function initGame(difficulty = "medium") {
     switch(difficulty) {
       case "easy": speed = 150; break;
       case "hard": speed = 70; break;
-      case "nightmare": speed = 250; break
+      case "nightmare": speed = 200; break;
       default: speed = 100; break;
     }
   
@@ -119,5 +119,5 @@ function initGame(difficulty = "medium") {
   
   document.getElementById("playButton").addEventListener("click", () => {
     const difficulty = document.getElementById("difficulty").value;
-    initGame(difficulty);
+    inTheGame(difficulty);
   });

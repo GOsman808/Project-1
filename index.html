@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snakes</title>
-    <link href="./CSS/style.css">
-    <script defer src="./JS/app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <script defer src="./JS/app.js"></script>
 </head>
 <body>
-    <div class="header">
-      <div class="title">Snakes</div>
-      <div class="toggle"><button id="themeToggle">Light/Dark</button></div>
+
+  <div class="header">
+    <div class="title">Snakes</div>
+    <div class="toggle"><button id="themeToggle">Light/dark</button></div>
+  </div>
+
+  <div class="info-bar">
+    <div class="info-box">Score: <span id="score">0</span></div>
+    <div class="sub-title">The game of snakes</div>
+    <div class="info-box">Timer: <span id="timer">0</span>s</div>
+  </div>
+
+  <div class="info-bar">
+    <div class="info-box">High Score: <span id="highScore">0</span></div>
+    <div class="info-box">
+      Difficulty:
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+        <option value="nightmare">Nightmare</option>
+      </select>
     </div>
-  
-    <div class="info-bar">
-      <div class="info-box">Score: <span id="score">0</span></div>
-      <div class="sub-title">The game of snakes</div>
-      <div class="info-box">Timer: <span id="timer">0</span>s</div>
-    </div>
-  
-    <div class="info-bar">
-      <div class="info-box">High Score: <span id="highScore">0</span></div>
-      <div class="info-box">
-        Difficulty:
-        <select id="difficulty">
-          <option value="easy">Easy</option>
-          <option value="medium" selected>Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-      </div>
-    </div>
-  
-    <div class="game-container">
-      <canvas id="game" width="700" height="700"></canvas>
-    </div>
-    <button id="playButton">Play</button>
-  </body>
-  </html>
+  </div>
+
+  <div class="game-container">
+    <canvas id="game" width="700" height="700"></canvas>
+  </div>
+  <button id="playButton">Play</button>
