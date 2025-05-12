@@ -75,7 +75,7 @@ function inTheGame(difficulty = "medium") {
     ) {
       clearInterval(gameInterval);
       clearInterval(timerInterval);
-      alert("Game Over!");
+      
       return;
     }
   
