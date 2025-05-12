@@ -23,6 +23,7 @@ function initGame(difficulty = "medium") {
     switch(difficulty) {
       case "easy": speed = 150; break;
       case "hard": speed = 70; break;
+      case "nightmare": speed = 250; break
       default: speed = 100; break;
     }
   
@@ -48,7 +49,7 @@ function initGame(difficulty = "medium") {
   }
   
   function draw() {
-    playingField.fillStyle = "#e0e0e0";
+    playingField.fillStyle = "white";
     playingField.fillRect(0, 0, canvas.width, canvas.height);
   
     for (let i = 0; i < snake.length; i++) {
@@ -74,7 +75,6 @@ function initGame(difficulty = "medium") {
     ) {
       clearInterval(gameInterval);
       clearInterval(timerInterval);
-      gameOverSound.play();
       alert("Game Over!");
       return;
     }
@@ -83,7 +83,6 @@ function initGame(difficulty = "medium") {
   
     if (headX === food.x && headY === food.y) {
       score += 10;
-      eatSound.play();
       if (score > highScore) {
         highScore = score;
         localStorage.setItem("highScore", highScore);
