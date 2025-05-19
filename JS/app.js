@@ -76,6 +76,7 @@ function inTheGame(difficulty = "medium") {
       clearInterval(gameInterval);
       clearInterval(timerInterval);
       showGameOverPopup();
+
       return;
     }
   
@@ -125,8 +126,8 @@ function inTheGame(difficulty = "medium") {
 function showGameOverPopup() {
     document.getElementById("finalScore").textContent = score;
     document.getElementById("gameOverPopup").style.display = "flex";
-}
+};
 
 function closePopup() {
     document.getElementById("gameOverPopup").style.display = "none";
-}
+};
